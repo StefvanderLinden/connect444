@@ -39,7 +39,7 @@ function board_update_handler(req, res) {
     // 4. Clean up the interval if the client closes the tab
     req.on('close', () => {
         res.end();
-        console.log("Connection closed")
+        // console.log("Connection closed")
         eventManager.removeListener('update_name', updateNames)
         remove_player_from_lobby(lobby_id, player_id, player_name)
         return
@@ -70,7 +70,7 @@ function add_player_to_lobby(lobby_id, player_id, player_name) {
 
 
     lobbies[lobby_id][player_id] = player_name
-    console.log(lobbies)
+    // console.log(lobbies)
     eventManager.emit('update_name', "")
 }
 
