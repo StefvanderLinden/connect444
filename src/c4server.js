@@ -40,6 +40,7 @@ function board_update_handler(req, res) {
     req.on('close', () => {
         res.end();
         // console.log("Connection closed")
+        eventManager.removeListener('update_board', onBoardUpdate)
         eventManager.removeListener('update_name', updateNames)
         remove_player_from_lobby(lobby_id, player_id, player_name)
         return

@@ -4,9 +4,11 @@ const { readFile } = require('fs').promises;
 
 app.use(require('express').json());
 
-app.get('/', async (req, res) => 
-    res.send(await readFile('./home.html', 'utf-8'))
-);
+// app.get('/', async (req, res) => 
+//     res.send(await readFile('./home.html', 'utf-8'))
+// );
+
+app.use(require('express').static('public'));
 
 // set up cors headers for all requests below that need it
 
